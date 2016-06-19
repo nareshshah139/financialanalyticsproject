@@ -42,9 +42,13 @@ def feature_selection(df,target_column,id_column):
     If the output column is binary (0/1), we use Genetic Algorithms for feature selection.
     If the output column is numeric, we use the best half of the features using the feature importance from RandomForests.
     """
-    in_model = []
-    list_inputs = set()
+    df = df
+    lists = set(list(df))
     output_var = target_column
+    list_inputs = [x for x in lists if not x == target_column]
+    
+    
+    
 
 
 
@@ -149,7 +153,7 @@ def feature_selection(df,target_column,id_column):
     ####
     if method_type == "numerical":
         X_train=df[var_model]
-        Y_train=df["if_var_73"]
+        Y_train=df[output_var]
 
         names = list(X_train)
         ranks = {}
