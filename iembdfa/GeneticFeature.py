@@ -292,12 +292,15 @@ def feature_selection(df,target_column,id_column):
         # PRINTING OUT THE LIST OF FEATURES
         #####
         f=0
+        l = list()
         for i in range(len(features)):
             if features[i]=='1':
                 f+=1
                 print('feature ', f, ':', list(list_inputs)[i])
+                l.append(list(list_inputs)[i])
+                
         print ('gini: ', gini)
 
-        featureset = features
+        featureset = l
 
-    return(featureset)
+    return(df[featureset])
