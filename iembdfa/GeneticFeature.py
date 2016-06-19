@@ -46,25 +46,6 @@ def feature_selection(df,target_column,id_column):
     lists = set(list(df))
     output_var = target_column
     list_inputs = [x for x in lists if not x == target_column]
-    
-    
-    
-
-
-
-    for var_name in df.columns:
-        if re.search('^ib_',var_name):
-            list_inputs.add(var_name)
-        elif re.search('^icn_',var_name):
-            list_inputs.add(var_name)
-        elif re.search('^ico_',var_name):
-            list_inputs.add(var_name)
-        elif re.search('^if_',var_name):
-            list_inputs.add(var_name)
-        elif re.search('^ob_',var_name):
-            output_var = var_name
-        else:
-            print ("ERROR: unable to identify the type of:", var_name)
 
 
     if (df[output_var].isin([0,1]).all()):
